@@ -11,11 +11,19 @@ public class Main {
 
         List<Fundo> fundos = lerArquivoFundos(caminhoCompleto);
 
-        fundos.sort((f1, f2) ->
-                -f1.getRentabilidade().compareTo(f2.getRentabilidade())
-        );
+        Map<Month, Double> somaPorMes = fundos.stream()
+                .collect(Collectors.groupingBy(
+                        fundo -> fundo.getDate().getMonth(),
+                        Collectors.summingDouble(Fundo::getRentabilidade)
+                ));
 
-        String conteudo = GeradorConteudo.gerarTxt(fundos);
+        Map<Month, Double> fundosOrdenado = somaPorMes.entrySet().stream()
+                .sorted((entry1, entry2) -> Double.compare(entry2.getValue(), entry1.getValue()))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
+                        (e1, e2) -> e1, LinkedHashMap::new));
+
+
+        String conteudo = GeradorConteudo.gerarTxt(fundosOrdenado);
         GeradorArquivo.escrever(novoArquivo,conteudo);
     }
 
