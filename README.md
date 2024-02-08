@@ -32,12 +32,16 @@ O programa lerá o arquivo `rentabilidades.txt`, calculará as rentabilidades me
 Após a execução, o programa gerará um arquivo chamado `rentabilidades-ordenado.txt` com os resultados ordenados, similar ao exemplo fornecido:
 
 ```
-Data;Rentabilidade
-12/01/2023;4.971
-27/06/2023;4.722
-10/02/2023;3.772
-07/03/2023;3.757
-30/01/2023;3.637
-20/01/2023;3.627
-03/07/2023;3.533
+Mês APRIL: 11.117
+Mês JUNE: 7.897
+Mês OCTOBER: 5.731
+Mês SEPTEMBER: 5.586
+Mês JULY: 5.389
+Mês FEBRUARY: 4.677999999999999
+Mês MAY: 3.689
+Mês JANUARY: 3.181000000000001
+Mês AUGUST: 3.142
+Mês DECEMBER: 2.6589999999999994
+Mês MARCH: 1.6689999999999996
+Mês NOVEMBER: 1.204
 ```
